@@ -1,0 +1,37 @@
+<!--pages/orderdetails/orderdetails.wxml-->
+<scroll-view scroll-y class='zong'>
+<view wx:if="{{kong}}" class='kong'>
+  无任何订单消息
+</view>
+<view  class='container1' wx:for='{{datas}}'>
+  <view class='container1_1'>
+   订单编号：{{item.order_num}}
+  </view>
+  <view class='container1_2'>
+   <view class='container1_2_1'>
+     <!-- <image src='/images/baojiefuwu.png' class='container1_2_img' mode='widthFix'/> -->
+     <view class='container1_2_img'>
+       {{item.type}}
+     </view>
+
+
+
+
+     <view class='container1_2_1_1'>
+      <view class='container1_2_1_1p'>预约日期：{{item.order_time}}</view>
+      <view class='container1_2_1_1p'>地址：{{item.address}}</view>
+      <view class='container1_2_1_1p'>服务人员：{{item.worker}}</view>
+     </view>
+   </view>
+    <view class='container1_2_2'>
+     <view class='container1_2_2p'>金额：{{item.money}}</view>
+     <view class='container1_2_2p' style='margin-right:30rpx'>{{item.pay_state}}</view>
+    </view>
+  </view>
+</view>
+</scroll-view>
+ <view class='container3'>
+   <navigator url='/pages/index2/index2' class='container3_1'>
+     继续预约
+   </navigator>
+ </view>

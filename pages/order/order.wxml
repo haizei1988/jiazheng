@@ -1,0 +1,110 @@
+<!--pages/order/order.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='container1'>
+  {{details.item_name}}须知
+</view>
+<!-- <view class='container_wenzi1'>
+  服务标准与制度
+</view> -->
+ <view class='container2'> 
+ <template is="wxParse" class='container2_wenzi' data="{{wxParseData:markdown.nodes}}"/>
+
+ </view> 
+ <view class='container_wenzi3' bindtap='phone'>
+  联系方式：{{numbers}}
+</view>
+<view class='container1'>
+  联系方式
+</view>
+
+<form class="form" bindsubmit="formSubmit" report-submit="true">
+ <view> 
+<!--input.wxml-->
+<view class="container3">
+  <input placeholder="{{username}}" name='username' />
+  <input placeholder="{{userphone}}"  name='userphone' bindinput='bindKeyInput' />
+  <view class="container3_1" >
+   <input placeholder="短信验证码"  name='yanzheng' />
+   <view  wx:if="{{send}}" class="container3_2" bindtap="getcode">
+     获取验证码
+   </view>
+    <view wx:if="{{alreadySend}}" class="container3_2" bindtap="getcode">
+     {{second}}秒
+   </view>
+  </view>
+  <!-- 省市选择 -->
+<!-- 
+ <view class="section">
+   <picker  bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      当前选择：{{array[index]}}
+    </view>
+  </picker>
+ </view> -->
+
+
+ <view class="section">
+   <picker mode="region" bindchange="bindPickerChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
+ </view>
+
+
+
+  <!-- <textarea placeholder="请输入详细地址"  fixed="{{tag}}"/> -->
+  <input placeholder="请输入详细地址" name="textarea" />
+  <view class="section"> 
+    <!-- <picker mode="time" value="{{time}}" start="00:00"  bindchange="bindTimeChange" name="instime"> 
+      <view class="picker"> 
+      时间 : {{time}} 
+      </view> 
+    </picker> -->
+     <picker bindchange="bindTimeChange" value="{{index1}}" range="{{arraytime}}">
+      <view class="picker">
+        当前选择：{{arraytime[index1]}}
+      </view>
+    </picker>
+       <!-- <picker mode="multiSelector" bindchange="bindTimeChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{time}}" range="{{multiArray}}">
+    <view class="picker">
+      时间：{{multiArray[0][multiIndex[0]]}}：{{multiArray[1][multiIndex[1]]}}
+    </view>
+  </picker> -->
+  </view> 
+  <view class="section"> 
+    <picker mode="date" value="{{afterTomorrow}}" start="{{afterTomorrow}}"  bindchange="bindDateChange" name="insdate"> 
+      <view class="picker"> 
+      日期: {{afterTomorrow}} 
+      </view> 
+    </picker> 
+  </view>   
+  <!-- <input placeholder="省市选择" auto-focus/>
+  <input placeholder="预约时间" auto-focus/>    -->  
+</view>
+
+ </view> 
+
+
+
+ <view class='container4'>
+ <view class='container41'>
+   <view class='container4_1'>
+     <view class='container4_1_1'>
+       <view class='container4_1_1p'>应付：</view> 
+       <view class='container4_1_1p2'>
+         ￥{{details.money}}
+       </view>
+     </view>
+     <view class='container4_1_2'>
+      提交订单即可享受服务
+     </view>
+   </view>
+    <button class='container4_2' formType="submit">
+     提交订单
+   </button> 
+ </view>
+ </view>
+</form>
+
+

@@ -1,0 +1,39 @@
+<!--pages/index2/index2.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" class='imgs'
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item >
+      <image src="{{baseurl}}{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+ <view  class='container2'> 
+ <view  wx:for="{{type1}}" wx:for-index="num" >
+  <view class='container2_1'>
+     <view class='container2_1_nv'>
+       <image src='{{baseurl}}{{item.pic}}' class='container2_1_img'/>
+       <!-- <view class="container2_1_nv_wenzi"> -->
+        <view  data-index="{{index}}" class="{{num%2==0?'container2_1_nv_wenzi_you':'container2_1_nv_wenzi_zuo'}}">      
+         <view class='container2_1_nv_wenzi1' >{{item.cate_name}}</view>
+          <!-- <view class='container2_1_nv_wenzi_img' bindtap="blocking" id="{{item.id}}" data-num="{{num}}">
+            立即预约
+          </view> -->
+       </view>
+     </view>
+  </view>
+  <view class='container2_2'  >
+    <navigator url='/pages/order/order?cate_id={{item.cate_id}}&&item_id={{item.id}}' wx:for="{{type1[num].items}}" class='container2_2_img'>
+    <view style='padding-right: 10rpx;padding-left: 10rpx'  > 
+       ¥{{item.money}} {{item.item_name}}
+    </view> 
+    </navigator>
+  </view>
+</view>  
+</view> 
+
+ <view class='container3'>
+   <navigator url='/pages/orderdetails/orderdetails' class='container3_1'>
+     个人中心
+   </navigator>
+ </view>

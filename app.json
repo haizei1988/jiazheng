@@ -1,0 +1,19 @@
+{
+  "pages": [   
+    "pages/index2/index2",
+    
+    "pages/order/order",
+     
+    "pages/orderdetails/orderdetails",    
+    "pages/logs/logs",
+    "pages/user/user"
+   
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  }
+}
